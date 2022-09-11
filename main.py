@@ -31,7 +31,11 @@ f.write("")
 f.close()
 
 for proxy in proxys:
-	x = requests.get(proxy)
-	f = open("pl.txt", 'a')
-	f.write(x.text)
-	f.close()
+	try:
+		x = requests.get(proxy)
+		f = open("pl.txt", 'a')
+		f.write(x.text)
+		f.close()
+		print("success get: " + proxy)
+	except:
+		print("faill get: " + proxy)
